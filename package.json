@@ -27,6 +27,7 @@
     "eslint-plugin-standard": "^4.0.0"
   },
   "dependencies": {
-    "discord.js": "^11.4.2"
+    "discord.js": "^11.4.2",
+    "events": "^3.0.0"
   }
 }

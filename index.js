@@ -8,8 +8,8 @@ const round = (num, places) => {
   return Math.round(num * Math.pow(10, places)) / Math.pow(10, places)
 }
 
-bot.on(`ready`, client => {
-  client.user.setActivity(`Try ${conf.prefix}help!`)
+bot.on(`ready`, () => {
+  bot.user.setActivity(`Try ${conf.prefix}help!`)
   console.log(`ready`)
 })
 

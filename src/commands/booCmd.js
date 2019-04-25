@@ -13,7 +13,9 @@ const booCmd = {
     for (let i = 0; i < members.length; i++) {
       nicknames.push(`**${members[i].nickname}**`)
     }
-    return msg.channel.send(`**${msg.guild.member(msg.author).nickname}** scares ${nicknames.join(` and `)}! BOO!`)
+    return msg.channel.send(`**${!msg.guild.member(msg.author).nickname
+      ? msg.author.username
+      : msg.guild.member(msg.author).nickname}** scares ${nicknames.join(` and `)}! BOO!`)
   }
 }
 exports.booCmd = booCmd

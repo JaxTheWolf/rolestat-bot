@@ -6,6 +6,7 @@ const bot = new Client({ disabledEvents: [`GUILD_SYNC`, `GUILD_UPDATE`, `CHANNEL
 const cmds = new CommandParser(bot, conf.prefix)
 
 cmds.registerAllIn(join(__dirname, `commands`))
+cmds.addType(`action`)
 
 bot.on(`ready`, () => {
   bot.user.setActivity(`Try ${conf.prefix}help!`)

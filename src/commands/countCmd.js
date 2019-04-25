@@ -1,3 +1,5 @@
+const { RichEmbed } = require(`discord.js`)
+
 const round = (num, places) => {
   return Math.round(num * Math.pow(10, places)) / Math.pow(10, places)
 }
@@ -6,18 +8,26 @@ const countCmd = {
   invoke: `count`,
   aliases: [`countRoles`, `roles`],
   desc: `Get the % of people that have a certain role`,
-  help: `count <roleName> (Case sensitive!)`,
+  help: `<roleName> (Case sensitive!)`,
   type: `info`,
-  cmdFunc: (msg, args) => {
+  cmdFunc: (msg, args, client) => {
     const count = { has: 0, nohas: 0 }
+    const roleName = args.join(` `)
     msg.guild.members.map(m => {
-      if (m.roles.some(r => r.name === args.join(` `))) {
+      if (m.roles.some(r => r.name === roleName)) {
         count.has++
       } else {
         count.nohas++
       }
     })
-    return msg.channel.send(`${count.has} members have this role and ${count.nohas} don't have this role\nSo that means that approx. ${round((100 * count.has) / msg.guild.memberCount, 2)}% of members have it`)
+    const eb = new RichEmbed()
+      .setColor(0x00FFF0)
+      .setAuthor(`Here are the statistics of the ${roleName} role:`, client.user.displayAvatarURL)
+      .addField(`Amount of users that have this role`, count.has, true)
+      .addField(`amount of users that don't have this role`, count.nohas, true)
+      .addField(`Percentage of users that have it`, `${round((100 * count.has) / msg.guild.memberCount, 2)}%`, true)
+      .setTimestamp()
+    return msg.channel.send(eb)
   }
 }
 

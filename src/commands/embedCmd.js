@@ -4,7 +4,7 @@ const embedCmd = {
   invoke: `embed`,
   aliases: [],
   desc: `Embeds a message`,
-  help: `embed <message>`,
+  help: `<message>`,
   type: `util`,
   cmdFunc: async (msg, args) => {
     if (args.length !== 0) {

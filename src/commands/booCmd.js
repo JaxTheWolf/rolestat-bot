@@ -11,7 +11,11 @@ const booCmd = {
     const nicknames = []
 
     for (let i = 0; i < members.length; i++) {
-      nicknames.push(`**${members[i].nickname}**`)
+      if (members[i].nickname === null) {
+        nicknames.push(`**${members[i].user.username}**`)
+      } else {
+        nicknames.push(`**${members[i].nickname}**`)
+      }
     }
     return msg.channel.send(`**${!msg.guild.member(msg.author).nickname
       ? msg.author.username

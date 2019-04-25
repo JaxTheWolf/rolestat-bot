@@ -1,5 +1,5 @@
 const { Client } = require(`discord.js`)
-const { CommandParser } = require(`./CommandParser`)
+const { CommandParser } = require(`./libs/CommandParser`)
 const { join } = require(`path`)
 const conf = require(`./conf.json`)
 const bot = new Client({ disabledEvents: [`GUILD_SYNC`, `GUILD_UPDATE`, `CHANNEL_CREATE`, `CHANNEL_DELETE`, `CHANNEL_UPDATE`, `TYPING_START`, `RELATIONSHIP_ADD`, `RELATIONSHIP_REMOVE`] })

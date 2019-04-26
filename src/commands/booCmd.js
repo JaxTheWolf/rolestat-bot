@@ -9,6 +9,7 @@ const booCmd = {
   cmdFunc: (msg, args, client) => {
     const members = getMembersFromMentions(client, msg.guild, args)
     const nicknames = []
+    let message
 
     for (let i = 0; i < members.length; i++) {
       if (members[i].nickname === null) {
@@ -17,9 +18,17 @@ const booCmd = {
         nicknames.push(`**${members[i].nickname}**`)
       }
     }
-    return msg.channel.send(`**${!msg.guild.member(msg.author).nickname
-      ? msg.author.username
-      : msg.guild.member(msg.author).nickname}** scares ${nicknames.join(` and `)}! BOO!`)
+
+    if (nicknames.length !== 0) {
+      message = `**${!msg.guild.member(msg.author).nickname
+        ? msg.author.username
+        : msg.guild.member(msg.author).nickname}** scares ${nicknames.join(` and `)}! BOO!`
+    } else {
+      message = `**${!msg.guild.member(msg.author).nickname
+        ? msg.author.username
+        : msg.guild.member(msg.author).nickname}** scares themselves..?`
+    }
+    return msg.channel.send(message)
   }
 }
 exports.booCmd = booCmd

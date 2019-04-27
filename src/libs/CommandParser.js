@@ -41,9 +41,9 @@ class Parser extends EventEmitter {
         cmdFunc: cmd.cmdFunc,
         invoke: cmd.invoke,
         root: cmd.invoke,
-        desc: cmd.desc === `` ? `no description` : cmd.desc,
-        help: cmd.help === `` ? `no help` : `${this.prefix}${cmd.invoke} ${cmd.help}`,
-        type: cmd.type === `` ? `Misc` : cmd.type
+        desc: !cmd.desc ? `no description` : cmd.desc,
+        help: !cmd.help ? `no help` : `${this.prefix}${cmd.invoke} ${cmd.help}`,
+        type: !cmd.type ? `Misc` : cmd.type
       }
       if (cmd.aliases.length > 0) {
         if (cmd.aliases) {
@@ -52,9 +52,9 @@ class Parser extends EventEmitter {
               cmdFunc: cmd.cmdFunc,
               invoke: cmd.invoke,
               root: cmd.invoke,
-              desc: cmd.desc === `` ? `no description` : cmd.desc,
-              help: cmd.help === `` ? `no help` : this.prefix + cmd.help,
-              type: cmd.type === `` ? `Misc` : cmd.type
+              desc: !cmd.desc ? `no description` : cmd.desc,
+              help: !cmd.help ? `no help` : this.prefix + cmd.help,
+              type: !cmd.type ? `Misc` : cmd.type
             }
           })
         }
@@ -64,9 +64,9 @@ class Parser extends EventEmitter {
         invoke: cmd.invoke,
         aliases: cmd.aliases,
         root: cmd.invoke,
-        desc: cmd.desc === `` ? `no description` : cmd.desc,
-        help: cmd.help === `` ? `no help` : this.prefix + cmd.help,
-        type: cmd.type === `` ? `Misc` : cmd.type
+        desc: !cmd.desc ? `no description` : cmd.desc,
+        help: !cmd.help ? `no help` : this.prefix + cmd.help,
+        type: !cmd.type ? `Misc` : cmd.type
       }
       return this
     }

@@ -26,9 +26,9 @@ exports.getMembersFromMentions = (client, guild, ids) => {
  */
 exports.sendAction = (client, msg, actionMsg, args) => {
   const members = exports.getMembersFromMentions(client, msg.guild, args)
-    ? exports.getMembersFromMentions(client, msg.guild, args)
-    : msg.author.username
-  const authorNick = msg.guild.member(msg.author).nickname
+  const authorNick = !msg.guild.member(msg.author).nickname
+    ? msg.author.username
+    : msg.guild.member(msg.author).nickname
   const nicknames = []
   let message = actionMsg.replace(`%author`, `${authorNick}`)
 

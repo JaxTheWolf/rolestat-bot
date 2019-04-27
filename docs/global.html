@@ -104,7 +104,7 @@
     
 
     
-    <h4 class="name" id="getMembersFromMentions"><span class="type-signature"></span>getMembersFromMentions<span class="signature">(client, guild, args)</span><span class="type-signature"> &rarr; {Array.&lt;GuildMember>}</span></h4>
+    <h4 class="name" id="getMembersFromMentions"><span class="type-signature"></span>getMembersFromMentions<span class="signature">(client, guild, ids)</span><span class="type-signature"> &rarr; {Array.&lt;GuildMember>}</span></h4>
     
 
     
@@ -164,7 +164,7 @@
 
             
 
-            <td class="description last"><p>The client</p></td>
+            <td class="description last"><p>the discord.js client instance</p></td>
         </tr>
 
     
@@ -187,14 +187,14 @@
 
             
 
-            <td class="description last"><p>The guild</p></td>
+            <td class="description last"><p>the guild from which members will be selected</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>args</code></td>
+                <td class="name"><code>ids</code></td>
             
 
             <td class="type">
@@ -210,7 +210,7 @@
 
             
 
-            <td class="description last"><p>The args</p></td>
+            <td class="description last"><p>the array of user IDs</p></td>
         </tr>
 
     
@@ -251,7 +251,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="common.js.html">common.js</a>, <a href="common.js.html#line10">line 10</a>
+        <a href="common.js.html">common.js</a>, <a href="common.js.html#line8">line 8</a>
     </li></ul></dd>
     
 
@@ -303,7 +303,7 @@
     
 
     
-    <h4 class="name" id="getMembersFromMentions"><span class="type-signature"></span>getMembersFromMentions<span class="signature">(client, guild, args)</span><span class="type-signature"> &rarr; {Array.&lt;GuildMember>}</span></h4>
+    <h4 class="name" id="getMembersFromMentions"><span class="type-signature"></span>getMembersFromMentions<span class="signature">(client, guild, ids)</span><span class="type-signature"> &rarr; {Array.&lt;GuildMember>}</span></h4>
     
 
     
@@ -363,7 +363,7 @@
 
             
 
-            <td class="description last"><p>The client</p></td>
+            <td class="description last"><p>the discord.js client instance</p></td>
         </tr>
 
     
@@ -386,14 +386,14 @@
 
             
 
-            <td class="description last"><p>The guild</p></td>
+            <td class="description last"><p>the guild from which members will be selected</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>args</code></td>
+                <td class="name"><code>ids</code></td>
             
 
             <td class="type">
@@ -409,7 +409,7 @@
 
             
 
-            <td class="description last"><p>The args</p></td>
+            <td class="description last"><p>the array of user IDs</p></td>
         </tr>
 
     
@@ -450,7 +450,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="common.js.html">common.js</a>, <a href="common.js.html#line10">line 10</a>
+        <a href="common.js.html">common.js</a>, <a href="common.js.html#line8">line 8</a>
     </li></ul></dd>
     
 
@@ -485,6 +485,450 @@
     <dd>
         
 <span class="param-type">Array.&lt;GuildMember></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="sendAction"><span class="type-signature"></span>sendAction<span class="signature">(client, msg, actionMsg, args)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>sends an action message</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>client</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Client</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the discord.js client instance</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>msg</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Message</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>an object representing a Discord message</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>actionMsg</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the message taht gets sent</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>args gathered from a command</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="common.js.html">common.js</a>, <a href="common.js.html#line27">line 27</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="sendAction"><span class="type-signature"></span>sendAction<span class="signature">(client, msg, actionMsg, args)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>sends an action message</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>client</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Client</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the discord.js client instance</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>msg</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Message</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>an object representing a Discord message</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>actionMsg</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the message taht gets sent</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>args</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>args gathered from a command</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="common.js.html">common.js</a>, <a href="common.js.html#line27">line 27</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
 
 
     </dd>
@@ -512,13 +956,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Parser.html">Parser</a></li></ul><h3>Global</h3><ul><li><a href="global.html#getMembersFromMentions">getMembersFromMentions</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Parser.html">Parser</a></li></ul><h3>Global</h3><ul><li><a href="global.html#getMembersFromMentions">getMembersFromMentions</a></li><li><a href="global.html#sendAction">sendAction</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Apr 25 2019 18:05:18 GMT+0200 (Central European Summer Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Apr 27 2019 17:42:16 GMT+0200 (Central European Summer Time)
 </footer>
 
 <script> prettyPrint(); </script>

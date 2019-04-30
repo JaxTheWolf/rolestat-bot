@@ -13,7 +13,7 @@ exports.getMembersFromMentions = (client, guild, ids) => {
       members.push(guild.member(client.users.get(match[1])))
     }
   })
-  return members
+  return [...new Set(members)]
 }
 
 /**
@@ -30,18 +30,23 @@ exports.sendAction = (client, msg, actionMsg, args) => {
     ? msg.author.username
     : msg.guild.member(msg.author).nickname
   const nicknames = []
-  let message = actionMsg.replace(`%author`, `${authorNick}`)
-
-  for (let i = 0; i < members.length; i++) {
-    if (members[i].nickname === null) {
-      nicknames.push(`**${members[i].user.username}**`)
-    } else {
-      nicknames.push(`**${members[i].nickname}**`)
-    }
+  let message
+  if (Array.isArray(actionMsg)) {
+    message = actionMsg[Math.floor(Math.random() * actionMsg.length)].replace(/(%author)/g, authorNick)
+  } else {
+    message = actionMsg.replace(`%author`, authorNick)
   }
 
+  members.forEach(member => {
+    if (!member.nickname) {
+      nicknames.push(`**${member.user.username}**`)
+    } else {
+      nicknames.push(`**${member.nickname}**`)
+    }
+  })
+
   if (nicknames.length !== 0) {
-    message = message.replace(`%other`, `${nicknames.join(` and `)}`)
+    message = message.replace(/(%other)/g, `${nicknames.join(` and `)}`)
   }
   return msg.channel.send(message)
 }

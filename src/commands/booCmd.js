@@ -8,7 +8,7 @@ const booCmd = {
   type: `action`,
   cmdFunc: (msg, args, client) => {
     const responses = [`**%author** scares %other! BOO!`, `**%author** yelled at %other and they jumped up real high!`]
-    return sendAction(client, msg, responses[Math.floor(Math.random() * responses.length)], args)
+    return sendAction(client, msg, responses, args)
   }
 }
 exports.booCmd = booCmd

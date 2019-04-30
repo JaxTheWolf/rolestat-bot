@@ -249,11 +249,6 @@ class Parser extends EventEmitter {
         this.parse(msg)
       }
     })
-    client.on(`messageUpdate`, (msgOld, msgNew) => {
-      if (msgNew.channel.type === `text`) {
-        this.parse(msgNew)
-      }
-    })
   }
 }
 

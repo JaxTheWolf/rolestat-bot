@@ -8,7 +8,7 @@ const brushCmd = {
   type: `action`,
   cmdFunc: (msg, args, client) => {
     const responses = [`**%author** brushes %other's floof! So soft..`, `**%author** wants to brush %other! Brushie brushie! \\:D`]
-    return sendAction(client, msg, responses, args)
+    return sendAction(client, msg, responses[Math.floor(Math.random() * responses.length)], args)
   }
 }
 exports.brushCmd = brushCmd

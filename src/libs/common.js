@@ -41,23 +41,7 @@ exports.sendAction = (client, msg, actionMsg, args) => {
   }
 
   if (nicknames.length !== 0) {
-    switch (message.includes(`%other's`)) {
-    case true:
-      message = message.replace(`%other's`, `${nicknames.join(` and `)}'s`)
-      break
-    case false:
-      message = message.replace(`%other`, `${nicknames.join(` and `)}`)
-      break
-    }
-  } else {
-    switch (message.includes(`%other's`)) {
-    case true:
-      message = message.replace(`%other's`, `their`)
-      break
-    case false:
-      message = message.replace(`%other`, `themselves`)
-      break
-    }
+    message = message.replace(`%other`, `${nicknames.join(` and `)}`)
   }
   return msg.channel.send(message)
 }

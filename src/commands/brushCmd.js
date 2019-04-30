@@ -7,7 +7,8 @@ const brushCmd = {
   help: `<user>/<users>`,
   type: `action`,
   cmdFunc: (msg, args, client) => {
-    return sendAction(client, msg, `**%author** brushes %other's floof! So soft..`, args)
+    const responses = [`**%author** brushes %other's floof! So soft..`, `**%author** wants to brush %other! Brushie brushie! \\:D`]
+    return sendAction(client, msg, responses, args)
   }
 }
-exports.booCmd = brushCmd
+exports.brushCmd = brushCmd

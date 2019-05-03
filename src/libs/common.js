@@ -45,8 +45,10 @@ exports.sendAction = (client, msg, actionMsg, args) => {
     }
   })
 
-  if (nicknames.length !== 0) {
+  if (nicknames && nicknames.length !== 0) {
     message = message.replace(/(%other)/g, `${nicknames.join(` and `)}`)
+    return msg.channel.send(message)
+  } else {
+    return msg.channel.send(`Oi, you used it wrong ;-;`).then(m => m.delete(200))
   }
-  return msg.channel.send(message)
 }

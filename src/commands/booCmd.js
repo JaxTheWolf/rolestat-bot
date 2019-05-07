@@ -7,7 +7,7 @@ const booCmd = {
   help: `<user>/<users>`,
   type: `action`,
   cmdFunc: (msg, args, client) => {
-    const responses = [`**%author** scares %other! BOO!`, `**%author** yelled at %other and they jumped up real high!`]
+    const responses = [`**%author** scares %other! BOO!`, `**%author** yelled at %other and they jumped up real high!`, `**%author** walks up behind %other and scares them! BOO!`]
     return sendAction(client, msg, responses, args)
   }
 }

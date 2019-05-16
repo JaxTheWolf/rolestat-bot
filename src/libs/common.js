@@ -38,6 +38,11 @@ exports.sendAction = (client, msg, actionMsg, args) => {
   }
 
   members.forEach(member => {
+    if (message.includes(`brush`)) {
+      if (member.user.id === `547661721930694657`) {
+        message = `${message}\nhttps://cdn.discordapp.com/attachments/559345597606264842/577573982954586170/hqdefault-4.jpg`
+      }
+    }
     if (!member.nickname) {
       nicknames.push(`**${member.user.username}**`)
     } else {

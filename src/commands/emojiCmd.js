@@ -13,7 +13,8 @@ const emojiCmd = {
       const emoji = client.emojis.find(val => val.name === args[0])
       const member = msg.guild.member(msg.author)
 
-      return msg.delete.then(msg.channel.send(`${!member.nickname ? msg.user.username : member.nickname}: ${emoji}`))
+      msg.delete()
+      return msg.channel.send(`${!member.nickname ? msg.user.username : member.nickname}: ${emoji}`)
       /*    } else {
       const send = (msg, str) => {
         if (msg.guild.member(client.user).hasPermissions(`MANAGE_MESSAGES`)) {

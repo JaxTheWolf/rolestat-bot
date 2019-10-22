@@ -14,7 +14,7 @@ const emojiCmd = {
       const member = msg.guild.member(msg.author)
 
       return msg.delete.then(msg.channel.send(`${!member.nickname ? msg.user.username : member.nickname}: ${emoji}`))
-    } else {
+      /*    } else {
       const send = (msg, str) => {
         if (msg.guild.member(client.user).hasPermissions(`MANAGE_MESSAGES`)) {
           return msg.channel.send(str).then(m => m.delete(1500)).then(msg.delete())
@@ -26,7 +26,7 @@ const emojiCmd = {
         return send(`Too many arguments!`)
       } else {
         return send(`Too few arguments!`)
-      }
+      } */
     }
   }
 }

@@ -20,7 +20,7 @@ exports.getMembersFromMentions = (client, guild, ids) => {
  * sends an action message
  * @param {Client} client - the discord.js client instance
  * @param {Message} msg - an object representing a Discord message
- * @param {string} actionMsg - the message taht gets sent
+ * @param {string} actionMsg - the message that gets sent
  * @param {string[]} args - args gathered from a command
  * @return {Promise}
  */
@@ -69,4 +69,29 @@ exports.sendAction = (client, msg, actionMsg, args) => {
     }
   })
   return msg.channel.send({ embed })
+}
+
+/**
+ * deletes a message if the bot has proper perms
+ * @param {Client} client - the discord.js client instance
+ * @param {Message} msg - an object representing a Discord message
+ * @return {Promise}
+ */
+
+exports.delMsg = (client, msg) => {
+  if (msg.guild.member(client.user).hasPermissions(`MANAGE_MESSAGES`)) {
+    msg.delete()
+  }
+}
+
+/**
+ * sends and deletes a message in x ms
+ * @param {Message} msg - an object representing a Discord message
+ * @param {string} str - the error message that gets sent
+ * @param {Number} [time = 7500] - the duration after which the message will get deleted (in ms)
+ * @return {Promise}
+ */
+
+exports.sendError = (msg, str, time = 7500) => {
+  return msg.channel.send(str).then(m => m.delete(time))
 }

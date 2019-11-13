@@ -1,3 +1,5 @@
+const { delMsg, sendError } = require(`../libs/common`)
+
 const emojiCmd = {
   invoke: `emoji`,
   aliases: [],
@@ -5,29 +7,21 @@ const emojiCmd = {
   help: `<emoji name>`,
   type: `util`,
   cmdFunc: (msg, args, client) => {
-    /* const emoji = client.emojis.map()
-    console.log(emoji)
-    return msg.channel.send('emoji') */
-
     if (args.length === 1) {
       const emoji = client.emojis.find(val => val.name === args[0])
-      const member = msg.guild.member(msg.author)
 
-      msg.delete()
-      return msg.channel.send(`${!member.nickname ? msg.user.username : member.nickname}: ${emoji}`)
-      /*    } else {
-      const send = (msg, str) => {
-        if (msg.guild.member(client.user).hasPermissions(`MANAGE_MESSAGES`)) {
-          return msg.channel.send(str).then(m => m.delete(1500)).then(msg.delete())
-        } else {
-          return msg.channel.send(str).then(m => m.delete(1500))
-        }
-      }
-      if (args.length > 1) {
-        return send(`Too many arguments!`)
+      if (emoji === null) {
+        return sendError(msg, `This emoji doesn't exist`)
       } else {
-        return send(`Too few arguments!`)
-      } */
+        const member = msg.guild.member(msg.author)
+        return msg.channel.send(`**${!member.nickname ? member.user.username : member.nickname}:**`)
+          .then(msg.channel.send(`${emoji}`))
+          .then(delMsg(client, msg))
+      }
+    } else if (args.length > 1) {
+      return sendError(msg, `Too many arguments!`)
+    } else {
+      return sendError(msg, `Too few arguments!`)
     }
   }
 }

@@ -9,12 +9,10 @@ const cheshLoveCmd = {
   cmdFunc: (msg, args, client) => {
     const ID = `398632503935631361`
     const gmembers = msg.guild.members
-
     const chesh = gmembers.get(ID)
     const cheshNick = !chesh.nickname ? chesh.user.username : chesh.nickname
-
-    try {
-      const nicknames = getNicksFromMentions(client, msg.guild, args)
+    const nicknames = getNicksFromMentions(client, msg.guild, args)
+    if (nicknames.length > 0) {
       const random = () => {
         const random = gmembers.random()
         let toRet
@@ -25,29 +23,10 @@ const cheshLoveCmd = {
         }
         return toRet
       }
-
-      return msg.channel.send(`**${cheshNick}** loves ${nicknames}. Even you, **${random()}**.`)
-    } catch (e) {
-      console.log(e)
-      return msg.channel.send(`**${cheshNick}** loves all of you!`)
-    }
-
-    /*    if (!nicknames) {
-      return msg.channel.send(`${cheshNick} loves all of you!`)
+      return msg.channel.send(`**${cheshNick}** loves ${nicknames.join(` and `)}. Even you, **${random()}**.`)
     } else {
-      const random = (msg, members) => {
-        const random = members.random()
-        let toRet
-        if (!random.nickname) {
-          toRet = client.users.get(random.user.username)
-        } else {
-          toRet = random.nickname
-        }
-        return toRet
-      }
-
-      return msg.channel.send(`${cheshNick} loves ${nicknames}. Even you, ${random(msg, gmembers)}`)
-    } */
+      return msg.channel.send(`**${cheshNick}** loves **all of you**!`)
+    }
   }
 }
 exports.cheshLoveCmd = cheshLoveCmd

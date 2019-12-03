@@ -16,6 +16,19 @@ exports.getMembersFromMentions = (client, guild, ids) => {
   return [...new Set(members)]
 }
 
+exports.getNicksFromMentions = (client, guild, ids) => {
+  const members = exports.getMembersFromMentions(client, guild, ids)
+  const nicknames = []
+  members.forEach(member => {
+    if (!member.nickname) {
+      nicknames.push(`**${member.user.username}**`)
+    } else {
+      nicknames.push(`**${member.nickname}**`)
+    }
+  })
+  return nicknames
+}
+
 /**
  * sends an action message
  * @param {Client} client - the discord.js client instance

@@ -1,4 +1,5 @@
 const { getNicksFromMentions } = require(`../libs/common`)
+const { RichEmbed } = reuire(`discord.js`)
 
 const cheshLoveCmd = {
   invoke: `cheshire`,
@@ -11,6 +12,9 @@ const cheshLoveCmd = {
     const gmembers = msg.guild.members
     const chesh = gmembers.get(ID)
     const cheshNick = !chesh.nickname ? chesh.user.username : chesh.nickname
+    const emb = new RichEmbed()
+      .setColor(0x00FFF0)
+    let resp
     const nicknames = getNicksFromMentions(client, msg.guild, args)
     if (nicknames.length > 0) {
       const random = () => {
@@ -23,10 +27,12 @@ const cheshLoveCmd = {
         }
         return toRet
       }
-      return msg.channel.send(`**${cheshNick}** loves ${nicknames.join(` and `)}. Even you, **${random()}**.`)
+      resp = `**${cheshNick}** loves ${nicknames.join(` and `)}. Even you, **${random()}**.`
     } else {
-      return msg.channel.send(`**${cheshNick}** loves **all of you**!`)
+      resp = `**${cheshNick}** loves **all of you**!`
     }
+    emb.setTitle(resp)
+    return msg.channel.send(emb)
   }
 }
 exports.cheshLoveCmd = cheshLoveCmd

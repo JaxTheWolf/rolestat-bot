@@ -1,5 +1,5 @@
 const { getNicksFromMentions } = require(`../libs/common`)
-const { RichEmbed } = reuire(`discord.js`)
+const { RichEmbed } = require(`discord.js`)
 
 const cheshLoveCmd = {
   invoke: `cheshire`,

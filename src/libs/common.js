@@ -5,6 +5,7 @@
  * @param {string[]} ids - the array of user IDs
  * @return {GuildMember[]}
  */
+
 exports.getMembersFromMentions = (client, guild, ids) => {
   const members = []
   ids.forEach(a => {
@@ -15,6 +16,14 @@ exports.getMembersFromMentions = (client, guild, ids) => {
   })
   return [...new Set(members)]
 }
+
+/**
+* gets nicknames from an array of mentions
+* @param {Client} client - the discord.js client instance
+* @param {Guild} guild - the guild from which members will be selected
+* @param {string[]} ids - the array of user IDs
+* @return {String[]}
+*/
 
 exports.getNicksFromMentions = (client, guild, ids) => {
   const members = exports.getMembersFromMentions(client, guild, ids)
@@ -37,6 +46,7 @@ exports.getNicksFromMentions = (client, guild, ids) => {
  * @param {string[]} args - args gathered from a command
  * @return {Promise}
  */
+
 exports.sendAction = (client, msg, actionMsg, args) => {
   const members = exports.getMembersFromMentions(client, msg.guild, args)
   const authorNick = !msg.guild.member(msg.author).nickname

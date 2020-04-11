@@ -72,26 +72,7 @@ exports.sendAction = (client, msg, actionMsg, args) => {
     message = message.replace(/(%other)/g, `${nicknames.join(` and `)}`)
   }
 
-  const RE = require(`discord.js`).RichEmbed
-  const embed = new RE()
-    .setTitle(message)
-    .setColor(0x00FFF0)
-
-  members.forEach(m => {
-    switch (message.includes(`brush`)) {
-    case true:
-      const images = {
-        batto: [
-          `batto.jpg`,
-          `batto1.png`
-        ]
-      }
-      if (m.user.id === `547661721930694657`) { // Skyler's ID
-        embed.attachFile(`src/libs/imgs/${images.batto[Math.floor(Math.random() * images.batto.length)]}`)
-      }
-    }
-  })
-  return msg.channel.send({ embed })
+  return msg.channel.send(message)
 }
 
 /**
